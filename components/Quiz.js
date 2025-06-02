@@ -336,7 +336,7 @@ export default function Quiz() {
 
   // Shuffle options when question changes
   useEffect(() => {
-    if (quizStarted && !showScore && selectedTest) {
+    if (quizStarted && !showScore && selectedTest && tests[selectedTest]) {
       setShuffledOptions(
         shuffleArray(tests[selectedTest][currentQuestion].options)
       );
@@ -344,6 +344,8 @@ export default function Quiz() {
   }, [currentQuestion, quizStarted, showScore, selectedTest]);
 
   const handleAnswerClick = (selectedOption) => {
+    if (!selectedTest || !tests[selectedTest]) return;
+
     setSelectedAnswer(selectedOption);
 
     if (selectedOption === tests[selectedTest][currentQuestion].correctAnswer) {
@@ -352,6 +354,8 @@ export default function Quiz() {
   };
 
   const handleNextQuestion = () => {
+    if (!selectedTest || !tests[selectedTest]) return;
+
     if (currentQuestion + 1 < tests[selectedTest].length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
@@ -397,7 +401,7 @@ export default function Quiz() {
           Добре дошли в теста!
         </h2>
         <p className="text-xl mb-8 text-gray-800">
-          Тестът съдържа {tests[selectedTest].length} въпроса
+          Тестът съдържа {tests[selectedTest]?.length || 0} въпроса
         </p>
         <button
           onClick={() => setQuizStarted(true)}
@@ -416,13 +420,30 @@ export default function Quiz() {
           Тестът приключи!
         </h2>
         <p className="text-xl mb-4 text-gray-800">
-          Вашият резултат: {score} от {tests[selectedTest].length}
+          Вашият резултат: {score} от {tests[selectedTest]?.length || 0}
         </p>
         <button
           onClick={restartQuiz}
           className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
         >
           Избери друг тест
+        </button>
+      </div>
+    );
+  }
+
+  if (!tests[selectedTest] || !tests[selectedTest][currentQuestion]) {
+    return (
+      <div className="text-center">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900">Грешка</h2>
+        <p className="text-xl mb-8 text-gray-800">
+          Възникна проблем с зареждането на теста. Моля, опитайте отново.
+        </p>
+        <button
+          onClick={restartQuiz}
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+        >
+          Върни се към избора на тест
         </button>
       </div>
     );
