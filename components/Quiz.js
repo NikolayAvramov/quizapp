@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 
 const dataFileMap = {
-  "Октомври 2020": () => import("../tests/Octomber2020.json"),
-  "Октомври 2021": () => import("../tests/Octomber2021.json"),
-  "Октомври 2022": () => import("../tests/Octomber2022.json"),
+  "Октомври 2020": () => import("../tests/October2020.json"),
+  "Октомври 2021": () => import("../tests/October2021.json"),
+  "Октомври 2022": () => import("../tests/October2022.json"),
   "Юни 2021": () => import("../tests/June2021.json"),
   "Декември 2021": () => import("../tests/December2021.json"),
-  "Април 2021": () => import("../tests/April2022.json"),
+  "Април 2022": () => import("../tests/April2022.json"),
 };
 
 // Fisher-Yates shuffle algorithm
