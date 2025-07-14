@@ -91,12 +91,12 @@ export default function Quiz() {
         <h2 className="text-2xl font-bold mb-4 text-gray-900">
           Изберете изпит
         </h2>
-        <div className="space-y-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
           {Object.keys(dataFileMap).map((testName) => (
             <button
               key={testName}
               onClick={() => setSelectedTest(testName)}
-              className="w-full max-w-md bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg"
+              className="h-20 w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg flex items-center justify-center text-center"
             >
               {testName}
             </button>
@@ -112,6 +112,12 @@ export default function Quiz() {
         <h2 className="text-2xl font-bold mb-4 text-gray-900">
           Добре дошли в теста!
         </h2>
+        <button
+          onClick={restartQuiz}
+          className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
+        >
+          ← Обратно към тестовете
+        </button>
         <p className="text-xl mb-8 text-gray-800">
           Тестът съдържа {tests[selectedTest]?.length || 0} въпроса
         </p>
