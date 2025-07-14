@@ -9,6 +9,7 @@ const dataFileMap = {
   "Юни 2021": () => import("../tests/June2021.json"),
   "Декември 2021": () => import("../tests/December2021.json"),
   "Април 2022": () => import("../tests/April2022.json"),
+  "Август 2023": () => import("../tests/August2023.json"),
 };
 
 // Fisher-Yates shuffle algorithm
