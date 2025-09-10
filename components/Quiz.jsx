@@ -6,6 +6,7 @@ const dataFileMap = {
   "Октомври 2020": () => fetch("/tests/October2020.json").then((r) => r.json()),
   "Октомври 2021": () => fetch("/tests/October2021.json").then((r) => r.json()),
   "Октомври 2022": () => fetch("/tests/October2022.json").then((r) => r.json()),
+  "Октомври 2023": () => fetch("/tests/October2023.json").then((r) => r.json()),
   "Юни 2021": () => fetch("/tests/June2021.json").then((r) => r.json()),
   "Декември 2021": () =>
     fetch("/tests/December2021.json").then((r) => r.json()),
