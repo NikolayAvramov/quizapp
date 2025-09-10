@@ -3,15 +3,17 @@
 import { useState, useEffect } from "react";
 
 const dataFileMap = {
-  "Октомври 2020": () => import("../tests/October2020.json"),
-  "Октомври 2021": () => import("../tests/October2021.json"),
-  "Октомври 2022": () => import("../tests/October2022.json"),
-  "Юни 2021": () => import("../tests/June2021.json"),
-  "Декември 2021": () => import("../tests/December2021.json"),
-  "Април 2022": () => import("../tests/April2022.json"),
-  "Август 2023": () => import("../tests/August2023.json"),
-  "Август 2022": () => import("../tests/August2022.json"),
-  "Януари 2023": () => import("../tests/January2023.json"),
+  "Октомври 2020": () => fetch("/tests/October2020.json").then((r) => r.json()),
+  "Октомври 2021": () => fetch("/tests/October2021.json").then((r) => r.json()),
+  "Октомври 2022": () => fetch("/tests/October2022.json").then((r) => r.json()),
+  "Юни 2021": () => fetch("/tests/June2021.json").then((r) => r.json()),
+  "Декември 2021": () =>
+    fetch("/tests/December2021.json").then((r) => r.json()),
+  "Април 2022": () => fetch("/tests/April2022.json").then((r) => r.json()),
+  "Април 2023": () => fetch("/tests/April2023.json").then((r) => r.json()),
+  "Август 2023": () => fetch("/tests/August2023.json").then((r) => r.json()),
+  "Август 2022": () => fetch("/tests/August2022.json").then((r) => r.json()),
+  "Януари 2023": () => fetch("/tests/January2023.json").then((r) => r.json()),
 };
 
 // Fisher-Yates shuffle algorithm
