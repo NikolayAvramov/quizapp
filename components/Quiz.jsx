@@ -15,6 +15,8 @@ const dataFileMap = {
   "Август 2023": () => fetch("/tests/August2023.json").then((r) => r.json()),
   "Август 2022": () => fetch("/tests/August2022.json").then((r) => r.json()),
   "Януари 2023": () => fetch("/tests/January2023.json").then((r) => r.json()),
+  "Февруари 2024": () =>
+    fetch("/tests/February2024.json").then((r) => r.json()),
 };
 
 // Fisher-Yates shuffle algorithm
